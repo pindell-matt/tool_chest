@@ -38,6 +38,8 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'pry-rails'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 group :development do
