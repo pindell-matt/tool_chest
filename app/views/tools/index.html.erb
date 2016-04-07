@@ -1,0 +1,12 @@
+<h1>All Tools</h1>
+
+<h4><%= link_to "Create New Tool", new_tool_path %></h4>
+
+<div class="all-tools">
+  <ul>
+    <% @tools.each do |tool| %>
+      <li><%= link_to tool.name, tool_path(tool) %> - <%= tool.quantity %></li>
+    <% end %>
+  </ul>
+</div>
+<p><%= link_to "Tool Index", tools_path %></p>
