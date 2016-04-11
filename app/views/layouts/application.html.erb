@@ -12,6 +12,12 @@
     <%= content_tag :div, msg, class: "flash_#{type}" %>
   <% end %>
 
+  <p>
+    <% unless most_recent_tool.nil? %>
+      <strong>Newest tool:</strong> <%= most_recent_tool.name %>
+    <% end %>
+  </p>
+
   <%= yield %>
 
 </body>
