@@ -5,13 +5,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
-      # flag
+      session[:user_id] = @user.id
       redirect_to @user
     else
       # flag
