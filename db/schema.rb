@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406154058) do
+ActiveRecord::Schema.define(version: 20160412213606) do
 
   create_table "tools", force: :cascade do |t|
     t.text     "name"
@@ -19,6 +19,19 @@ ActiveRecord::Schema.define(version: 20160406154058) do
     t.integer  "quantity"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "user_id"
+  end
+
+  add_index "tools", ["user_id"], name: "index_tools_on_user_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "username"
+    t.string   "password_digest"
+    t.string   "password_confirmation"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
 end

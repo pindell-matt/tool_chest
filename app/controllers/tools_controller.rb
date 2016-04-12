@@ -1,7 +1,12 @@
 class ToolsController < ApplicationController
 
   def index
-    @tools = Tool.all
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+      @tools = @user.tools
+    else
+      @tools = Tool.all
+    end
   end
 
   def destroy
