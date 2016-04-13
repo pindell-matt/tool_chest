@@ -8,10 +8,10 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       flash[:notice] = "Succsessful Login"
-      redirect_to @user # user_path(@user)
+      redirect_to @user
     else
       flash[:notice] = "Invalid Login"
-      # either user doesn't exist of password is incorrect
+      redirect_to login_path
     end
   end
 
