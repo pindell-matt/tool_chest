@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :tools
   resources :users, only: [:new, :create, :show]
+  resources :categories, only: [:show, :index], param: :name
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
