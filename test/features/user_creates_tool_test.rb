@@ -4,6 +4,16 @@ class UserCreatesToolTest < ActionDispatch::IntegrationTest
 
   test "user can create a tool" do
     # a user will visit to the form to create a new tool
+    user = User.create(name:     "Anon",
+                       email:    "example@aol.com",
+                       username: "user",
+                       password: "password")
+
+    visit login_path
+    fill_in "Username", with: "user"
+    fill_in "Password", with: "password"
+    click_button "Login"
+
     visit new_tool_path
 
     # user will enter data in each of the fields
